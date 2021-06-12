@@ -53,7 +53,6 @@ const Card: ForwardRefRenderFunction<CardPropsRef, CardProps> = ({imageIdentifie
     }
 
     const setupFallbackImage = () => {
-        console.log("[dd] imageIdentifier", imageIdentifier)
         setFallbackImage(<div className={classes.fallback} style={{backgroundColor: toHex(imageIdentifier)}}/>)
     }
 
