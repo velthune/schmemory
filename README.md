@@ -33,7 +33,7 @@ The 'network multi player' case is more complex and requires a server able to ma
 ### Installation
 
 ```
-git clone
-cd 
+git clone https://github.com/velthune/schmemory.git
+cd schmemory
 npm i && npm start
 ```
