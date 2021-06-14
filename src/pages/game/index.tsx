@@ -37,10 +37,10 @@ const Game: FC<GameProps> = ({
     const refs = useRef<RefObject<CardPropsRef>[]>([]);
     const countDownRef = useRef<CountDownPropsRef>(null);
 
-    const cards: string[] = useMemo(() => generateShuffleArray(cardNumber), [cardNumber, shuffle]);
+    const cards: string[] = useMemo(() => generateShuffleArray(cardNumber), [cardNumber]);
     // Accepted card number: positive number, odd and less than max card number
     const validCardNumber = useMemo(() => cardNumber > 0 && cardNumber <= maxCardNumber && !(cardNumber % 2), [cardNumber])
-    const isGameComplete = useCallback(() => cardNumber / 2 === score.total, [score])
+    const isGameComplete = useCallback(() => cardNumber / 2 === score.total, [cardNumber, score])
     const cardRefs = useMemo(() => {
         refs.current = cards.map((ref, index) => refs.current[index] = React.createRef())
         return refs

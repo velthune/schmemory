@@ -35,11 +35,11 @@ const Card: ForwardRefRenderFunction<CardPropsRef, CardProps> = ({imageIdentifie
     const [disable, setDisable] = useState(false)
     const [fallbackImage, setFallbackImage] = useState<JSX.Element | undefined>()
 
-    useEffect(() => setDisable(!isBack()), [cardStatus])
+    const isBack = useCallback(() => CardStatus.back === cardStatus, [cardStatus])
+
+    useEffect(() => setDisable(!isBack()), [isBack])
 
     const classes = useCardStyles();
-
-    const isBack = useCallback(() => CardStatus.back === cardStatus, [cardStatus])
 
     useImperativeHandle(ref, () => ({
         flip,
