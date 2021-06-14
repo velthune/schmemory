@@ -1,6 +1,7 @@
 import React, {FC, RefObject, useCallback, useMemo, useRef, useState} from "react";
 import Grid from '@material-ui/core/Grid';
 import {Button} from "@material-ui/core";
+import classNames from 'classnames';
 
 import Card, {CardPropsRef} from "../../components/card";
 import {useGameStyles} from "../../utils/styles";
@@ -108,7 +109,7 @@ const Game: FC<GameProps> = ({
                         }} seconds={timeToReset}/>
                     {isGameComplete() && <Button onClick={reset}>Reset</Button>}
                     <Grid
-                        className={`${classes.game} ${isUserInteractionDisabled ? classes.gameDisabled : ""}`}
+                        className={classNames(classes.game, {[`${classes.gameDisabled}`]: isUserInteractionDisabled})}
                         container
                         spacing={3}>
                         {
